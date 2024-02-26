@@ -17,6 +17,7 @@ export interface ChipsAndMult {
 }
 
 export interface CalcExplanation {
+  hand: CardRank[]
   combo: Combination
   cardChips: number
   base: ChipsAndMult
@@ -42,6 +43,7 @@ export function calc(hand: CardRank[], opts: CombinationOpts, params: CalcParams
   const score = finalChips * finalMult
 
   return {
+    hand,
     combo,
     cardChips,
     base: {

@@ -85,7 +85,7 @@ export function combination(ranks: CardRank[], opts: CombinationOpts = {}): Comb
 }
 
 function hasStraight(ranks: number[], ncards: number, canSkip: boolean): boolean {
-  return hasStraightEasy(ranks, ncards, canSkip) || hasStraightEasy(ranks.map((r) => r === 13 ? 1 : r), ncards, canSkip)
+  return hasStraightEasy(ranks, ncards, canSkip) || hasStraightEasy(ranks.map((r) => r === 1 ? 14 : r), ncards, canSkip)
 }
 
 function hasStraightEasy(ranks: number[], ncards: number, canSkip: boolean): boolean {
