@@ -1,11 +1,10 @@
 import { FormEvent, useState } from 'react'
 import './App.css'
-import { combination, combinations, parseRanks, rankToStr } from './poker'
+import { combinations, parseRanks, rankToStr } from './poker'
 import { CalcExplanation, ChipsAndMult, ComboLevels, calc } from './poker-baltaro'
 
 function App() {
   const [parsed, setParsed] = useState("")
-  const [combo, setCombo] = useState("")
   const [expl, setExpl] = useState<CalcExplanation | null>(null)
 
   const onSubmit = (e: FormEvent) => {
@@ -30,14 +29,11 @@ function App() {
     try {
       const ranks = parseRanks(hand)
       const handOpts = { hasFlush, straightFour, straightSkip }
-      const combo = combination(ranks, handOpts)
       const expl = calc(ranks, handOpts, calcParams)
       setParsed("What I though you said: " + ranks.map(rankToStr).join(" "))
-      setCombo(combo)
       setExpl(expl)
     } catch (e) {
       setParsed(`Unparsable: ${(e as Error).message}`)
-      setCombo("")
       setExpl(null)
     }
   }
