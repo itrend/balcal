@@ -49,4 +49,7 @@ h3 {
 
 #help code {
   font-weight: bold;
+  background-color: black;
+  padding-left: 4px;
+  padding-right: 4px;
 }

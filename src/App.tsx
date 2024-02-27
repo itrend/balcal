@@ -5,6 +5,7 @@ import { combinations } from './poker'
 import { ComboLevels } from './poker-baltaro'
 import { HandCalculator } from './components/hand-calculator'
 import { Help } from './components/help'
+import { Footer } from './components/footer'
 
 const levelsStrDefault = Object.fromEntries(combinations.map((c) => ([c, "1"]))) as ComboLevelsStr
 
@@ -28,6 +29,7 @@ function App() {
         </div>
       </div>
       <Help />
+      <Footer />
     </>
   )
 }
