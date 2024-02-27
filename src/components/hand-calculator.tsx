@@ -70,11 +70,11 @@ export function HandCalculator({ name, comboLevels }: HandCalculatorProps) {
         </label>
         <br/>
         <label>
-          Extra chips: <input name="extraChips" size={8} defaultValue="0"/>
+          Extra chips: <input name="extraChips" size={10} defaultValue="0"/>
         </label>
         &nbsp;
         <label>
-          Extra mult: <input name="extraMult" size={8} defaultValue="0" />
+          Extra mult: <input name="extraMult" size={10} defaultValue="0" />
         </label>
         <br/>
         <label>

@@ -13,7 +13,7 @@ export function Help() {
           do not know their strength</li>
       </ul>
       <hr/>
-      <b>Poker hand</b>: the ranks only of your poker hand, spaces are optional. Each
+      <b>Poker hand</b>: the ranks of your poker hand (no colors), spaces are optional. Each
       of <code>23456789JQK</code> mean what you expect, <code>1</code> is interpreted
       as <code>A</code>, unless directly followed by a zero, in which case it&apos;s interpreted
       as <code>10</code>. Use <code>0</code> or <code>S</code> for stone card.
@@ -38,8 +38,6 @@ export function Help() {
       <b>Mult mult chain</b>: all of your multiplier multipliers. A list of numbers that will be multiplied
       together to get the final multiplier e.g. <code>1.5 2 3</code> will yield final multiplier of <code>9</code>
       <br />
-      <a href="https://github.com/itrend/balcal">source code</a>
-      <a href="https://github.com/itrend/balcal/issues">issues</a>
     </div>
   )
 }
