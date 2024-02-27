@@ -10,10 +10,12 @@ const strToCardMap: Partial<Record<string, CardRank>> = Object.fromEntries([
   ["K", 13],
   ["A", 1],
   ["S", 0],
+  ["T", 10],
 ])
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const rankToStrMap: Partial<Record<CardRank, string>> = Object.fromEntries(Object.entries(strToCardMap).map(([k, v]) => ([v, k])))
+rankToStrMap[10] = "10"
 
 export const rankToStr = (r: CardRank) => rankToStrMap[r]?.toString()
 
@@ -69,7 +71,7 @@ export function combination(ranks: CardRank[], opts: CombinationOpts = {}): Comb
   const counts: Record<number, number> = {}
   ranks.forEach((r) => {
     if (!counts[r]) counts[r] = 0
-    counts[r] += 1 
+    counts[r] += 1
   })
   const vals = Object.values(counts).sort((a, b) => b - a)
   if (vals[0] >= 5) return hasFlush ? "FlushFive" : "Five"
