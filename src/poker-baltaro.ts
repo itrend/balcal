@@ -7,7 +7,7 @@ interface CalcParams {
   cardsMult: number
   extraChips: number
   extraMult: number
-  multMult: number[]
+  multMult: string
   comboLevels: ComboLevels
 }
 
@@ -38,8 +38,7 @@ export function calc(hand: CardRank[], opts: CombinationOpts, params: CalcParams
   const {extraChips, extraMult, cardsBonus, cardsMult, multMult} = params
   const finalChips = (comboChips + cardChips + extraChips + 30 * cardsBonus)
   const finalMultCum = (comboMult + extraMult + 4 * cardsMult)
-  const finalMultMult = multMult.reduce((a, b) => a * b, 1)
-  const finalMult = finalMultCum * finalMultMult
+  const finalMult = calcMultChain(multMult, finalMultCum)
   const score = finalChips * finalMult
 
   return {
@@ -77,4 +76,27 @@ const comboBases: Record<Combination, [number, number, number, number]> = {
   "StraightFlush": [100, 8, 3, 40],
   "FlushHouse": [0, 0, 3, 40],
   "FlushFive": [0, 0, 3, 40],
+}
+
+function calcMultChain(s: string, mult: number): number {
+  return s.match(/[x*+]/) ? calcMultExpr(s, mult) : calcMultSimple(s, mult)
+}
+
+function calcMultSimple(s: string, mult: number): number {
+  const list = s.split(/[ ,;]+/).map((n) => parseFloat(n))
+  return list.reduce((a, b) => a * b, mult)
+}
+
+function calcMultExpr(s: string, mult: number): number {
+  s = s.replace(/\s+/g, "")
+  if (!s) return mult
+  if (s.charAt(0).match(/[0-9]/)) s = "*" + s
+
+  const r = s.match(/[x*+-]\d+(\.\d*)?/g)?.reduce((result, term) => {
+    const op = term.charAt(0)
+    if ("+-".includes(op)) return result + parseFloat(term)
+    if ("*x".includes(op)) return result * parseFloat(term.substring(1))
+    throw new Error(`UNPOSSIBLE TERM '${term}'`)
+  }, mult)
+  return r ?? mult
 }

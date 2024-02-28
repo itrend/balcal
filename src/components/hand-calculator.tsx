@@ -30,7 +30,7 @@ export function HandCalculator({ id, comboLevels, calculatorsCount }: HandCalcul
     const cardsMult = n("cardsMult")
     const extraChips = n("extraChips")
     const extraMult = n("extraMult")
-    const multMult = parseNumberList(formData.get("multMult") as string)
+    const multMult = formData.get("multMult") as string
     const calcParams = { cardsBonus, cardsMult, extraChips, extraMult, multMult, comboLevels }
     try {
       const ranks = parseRanks(hand)
@@ -78,7 +78,7 @@ export function HandCalculator({ id, comboLevels, calculatorsCount }: HandCalcul
         </label>
         &nbsp;
         <label>
-          Cards with mult: <input id={`calculator${id}_cardsMult`} name="cardsMult" size={10} defaultValue="0" />
+          Cards with mult: <input id={`calculator${id}_cardsMult`} name="cardsMult" size={8} defaultValue="0" />
         </label>
         <br />
         <label>
@@ -86,11 +86,11 @@ export function HandCalculator({ id, comboLevels, calculatorsCount }: HandCalcul
         </label>
         &nbsp;
         <label>
-          Extra mult: <input id={`calculator${id}_extraMult`} name="extraMult" size={16} defaultValue="0" />
+          Extra mult: <input id={`calculator${id}_extraMult`} name="extraMult" size={10} defaultValue="0" />
         </label>
         <br />
         <label>
-          Mult mult chain: <input id={`calculator${id}_multMult`} name="multMult" size={20} defaultValue="1" />
+          Mult mult chain: <input id={`calculator${id}_multMult`} name="multMult" size={24} defaultValue="1" />
         </label>
         <br />
         <input type='submit' value="Calculate" className="submit" />
