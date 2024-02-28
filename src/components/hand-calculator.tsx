@@ -3,13 +3,15 @@ import { parseRanks } from "../poker"
 import { CalcExplanation, ComboLevels, calc } from "../poker-baltaro"
 import { Explain } from "./explain"
 
+const inputs: string[] = ["hand", "hasFlush", "straightFour", "straightSkip", "cardsBonus", "cardsMult", "extraChips", "extraMult", "multMult"]
 interface HandCalculatorProps {
-  name: string
+  id: number
   comboLevels: ComboLevels
+  calculatorsCount: number
 }
 
 
-export function HandCalculator({ name, comboLevels }: HandCalculatorProps) {
+export function HandCalculator({ id, comboLevels, calculatorsCount }: HandCalculatorProps) {
   const [parsed, setParsed] = useState("")
   const [expl, setExpl] = useState<CalcExplanation | null>(null)
 
@@ -41,52 +43,76 @@ export function HandCalculator({ name, comboLevels }: HandCalculatorProps) {
       setExpl(null)
     }
   }
+
+  function copyFields(fromCalculator: string, toCalculator: string) {
+    inputs.map(field => {
+      const frm = document.getElementById(`${fromCalculator}_${field}`) as HTMLInputElement
+      const to = document.getElementById(`${toCalculator}_${field}`) as HTMLInputElement
+      to.value = frm.value
+      to.checked = frm.checked
+    })
+  }
+
   return (
     <div className="calculator">
-      <form method='post' onSubmit={onSubmit}>
-        <h3>{name}</h3>
+      <form id={`calculator${id}`} method='post' onSubmit={onSubmit}>
+        <h3>Hand {id}</h3>
         <label>
-          Poker hand: <input name="hand" size={8} placeholder="a 2 3 4 5" />
+          Poker hand: <input id={`calculator${id}_hand`} name="hand" size={8} placeholder="a 2 3 4 5" />
         </label>
         &nbsp;
         <label>
-          Flush <input type="checkbox" name="hasFlush" defaultChecked={false} />
+          Flush <input type="checkbox" id={`calculator${id}_hasFlush`} name="hasFlush" defaultChecked={false} />
         </label>
-        <br/>
+        <br />
         <label>
-          Straight with 4 cards <input type="checkbox" name="straightFour" defaultChecked={false} />
+          Straight with 4 cards <input type="checkbox" id={`calculator${id}_straightFour`} name="straightFour" defaultChecked={false} />
         </label>
         &nbsp;
         <label>
-          Straight skip rank <input type="checkbox" name="straightSkip" defaultChecked={false} />
+          Straight skip rank <input type="checkbox" id={`calculator${id}_straightSkip`} name="straightSkip" defaultChecked={false} />
         </label>
-        <br/>
+        <br />
         <label>
-          Cards with bonus: <input name="cardsBonus" size={3} defaultValue="0"/>
+          Cards with bonus: <input id={`calculator${id}_cardsBonus`} name="cardsBonus" size={3} defaultValue="0" />
         </label>
         &nbsp;
         <label>
-          Cards with mult: <input name="cardsMult" size={3} defaultValue="0" />
+          Cards with mult: <input id={`calculator${id}_cardsMult`} name="cardsMult" size={10} defaultValue="0" />
         </label>
-        <br/>
+        <br />
         <label>
-          Extra chips: <input name="extraChips" size={10} defaultValue="0"/>
+          Extra chips: <input id={`calculator${id}_extraChips`} name="extraChips" size={10} defaultValue="0" />
         </label>
         &nbsp;
         <label>
-          Extra mult: <input name="extraMult" size={10} defaultValue="0" />
+          Extra mult: <input id={`calculator${id}_extraMult`} name="extraMult" size={16} defaultValue="0" />
         </label>
-        <br/>
+        <br />
         <label>
-          Mult mult chain: <input name="multMult" size={8} defaultValue="1" />
+          Mult mult chain: <input id={`calculator${id}_multMult`} name="multMult" size={20} defaultValue="1" />
         </label>
-        <br/>
+        <br />
         <input type='submit' value="Calculate" className="submit" />
         {parsed}
-        <br/>
+        <br />
         {expl && <Explain expl={expl} />}
-        <br/>
+        <br />
       </form>
+      <select className="copy" value={-1} defaultValue={-1}
+        onChange={e => {
+          copyFields(e.target.value, `calculator${id}`)
+          e.target.value = "-1"
+        }
+        }
+      >
+        <option key={-1} value={-1}>Copy from...</option>
+        {new Array(calculatorsCount).fill(0).map((_, i) => {
+          if (i + 1 != id) {
+            return (<option key={i + 1} value={`calculator${i + 1}`}>hand {i + 1}</option>)
+          }
+        })}
+      </select>
     </div>
   )
 }
