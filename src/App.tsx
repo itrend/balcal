@@ -15,6 +15,7 @@ function App() {
     Object.entries(levelsStr)
       .map(([c, val]) => [c, parseFloat(val)])
   ) as ComboLevels
+  const calculatorsCount = 6
   return (
     <>
       <h1>BALatro CALculator</h1>
@@ -23,8 +24,8 @@ function App() {
           <Levels levels={levelsStr} onLevelsChanged={setLevelsStr} />
         </div>
         <div id="handsContainer">
-          {new Array(6).fill(0).map((_, i) =>
-            <HandCalculator name={`Hand ${i+1}`} key={i} comboLevels={levels} />
+          {new Array(calculatorsCount).fill(0).map((_, i) =>
+            <HandCalculator id={i+1} key={i} comboLevels={levels} calculatorsCount={calculatorsCount} />
           )}
         </div>
       </div>
