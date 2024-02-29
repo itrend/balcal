@@ -72,7 +72,7 @@ const comboBases: Record<Combination, [number, number, number, number]> = {
   "Flush": [35, 4, 2, 15],
   "Full": [40, 4, 2, 25],
   "Four": [60, 7, 3, 30],
-  "Five": [0, 0, 3, 35],
+  "Five": [120, 12, 3, 35],
   "StraightFlush": [100, 8, 3, 40],
   "FlushHouse": [0, 0, 3, 40],
   "FlushFive": [0, 0, 3, 40],
