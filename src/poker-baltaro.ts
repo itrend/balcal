@@ -74,7 +74,7 @@ const comboBases: Record<Combination, [number, number, number, number]> = {
   "Four": [60, 7, 3, 30],
   "Five": [120, 12, 3, 35],
   "StraightFlush": [100, 8, 3, 40],
-  "FlushHouse": [0, 0, 3, 40],
+  "FlushHouse": [140, 14, 3, 40],
   "FlushFive": [0, 0, 3, 40],
 }
 
