@@ -79,7 +79,7 @@ const comboBases: Record<Combination, [number, number, number, number]> = {
 }
 
 function calcMultChain(s: string, mult: number): number {
-  return s.match(/[x*+]/) ? calcMultExpr(s, mult) : calcMultSimple(s, mult)
+  return s.match(/[x*+]/i) ? calcMultExpr(s, mult) : calcMultSimple(s, mult)
 }
 
 function calcMultSimple(s: string, mult: number): number {
@@ -92,10 +92,10 @@ function calcMultExpr(s: string, mult: number): number {
   if (!s) return mult
   if (s.charAt(0).match(/[0-9]/)) s = "*" + s
 
-  const r = s.match(/[x*+-]\d+(\.\d*)?/g)?.reduce((result, term) => {
+  const r = s.match(/[x*+-]\d+(\.\d*)?/ig)?.reduce((result, term) => {
     const op = term.charAt(0)
     if ("+-".includes(op)) return result + parseFloat(term)
-    if ("*x".includes(op)) return result * parseFloat(term.substring(1))
+    if ("*xX".includes(op)) return result * parseFloat(term.substring(1))
     throw new Error(`UNPOSSIBLE TERM '${term}'`)
   }, mult)
   return r ?? mult
