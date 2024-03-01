@@ -1,23 +1,23 @@
-.chips {
+.balatro {
+  font-family: monospace;
+  font-size: large;
   font-weight: bold;
   padding-left: 2px;
   padding-right: 2px;
-  color: #0080ff;
+  white-space: nowrap;
+}
+
+.chips {
+  color: #0060ff;
   background-color: #f0f0f0;
 }
 
 .amult {
-  font-weight: bold;
-  padding-left: 2px;
-  padding-right: 2px;
-  color: red;
+  color: #e00000;
   background-color: #f0f0f0;
 }
 
 .mmult {
-  font-weight: bold;
-  padding-left: 2px;
-  padding-right: 2px;
-  color: white;
-  background-color: red;
+  color: #f0f0f0;
+  background-color: #e00000;
 }

@@ -56,9 +56,15 @@ h3 {
 
 #help code {
   font-weight: bold;
+  color: #eee;
   background-color: black;
   font-size: larger;
   padding-left: 4px;
   padding-right: 4px;
   white-space: nowrap;
+}
+
+ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
