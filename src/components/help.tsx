@@ -37,7 +37,7 @@ export function Help() {
       <b>Extra mult</b>: <span className="amult">+mult</span> from jokers, retriggers, and other sources. As above,
       you can type more than one number and they will be summed
       <br />
-      <b>Mult mult chain</b>: all of your multiplier multipliers. Can be either:
+      <b>Mult mult chain</b>: your <span className="mmult">Xmult</span> bonuses. Can be either:
       <ul>
         <li>
           list of numbers that will be multiplied together to get the final multiplier
