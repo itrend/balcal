@@ -60,4 +60,5 @@ h3 {
   font-size: larger;
   padding-left: 4px;
   padding-right: 4px;
+  white-space: nowrap;
 }
