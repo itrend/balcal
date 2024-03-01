@@ -1,0 +1,23 @@
+.chips {
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: #0080ff;
+  background-color: white;
+}
+
+.amult {
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: red;
+  background-color: white;
+}
+
+.mmult {
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+  color: white;
+  background-color: red;
+}
