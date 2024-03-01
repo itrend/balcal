@@ -54,7 +54,7 @@ export function Help() {
           with <span className="amult">+4 mult</span> enhancement,
           a steel card left in hand (giving <span className="mmult">X1.5 mult</span> after scoring all cards),
           then a <span className="amult">+8 mult</span> joker and finally a <span className="mmult">X2 mult</span> joker.
-          This is expressed as <code> + 4 * 1.5 + 8 * 2</code> (spaces are optional) and will be calculated
+          This is expressed as <code>+4 *1.5 +8 *2</code> (spaces are optional) and will be calculated
           as <code>((&lt;base_multiplier&gt; + 4) * 1.5 + 8) * 2</code>
         </li>
       </ul>
