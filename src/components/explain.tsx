@@ -1,5 +1,5 @@
 import { rankToStr } from "../poker"
-import { CalcExplanation, ChipsAndMult } from "../poker-baltaro"
+import { CalcExplanation, ChipsAndMult } from "../poker-balatro"
 
 interface ExplainProps {
   expl: CalcExplanation
