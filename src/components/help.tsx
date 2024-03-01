@@ -11,7 +11,7 @@ export function Help() {
         <li>extra chips and mult must be gathered manually from the game</li>
         <li>retrigger cards must be accounted for manually, as extra chips</li>
         <li>debuffed card&apos;s chips must be manually substracted from extra chips (possibly going negative)</li>
-        <li>I still don&apos;t know the base score of flush five, so this one won't work</li>
+        <li>I still don&apos;t know the base score of flush five, so this one won&apos;t work</li>
       </ul>
       <hr/>
       <hr/>
@@ -46,11 +46,11 @@ export function Help() {
           are <b>after</b> all <span className="amult">+mult</span>s
         </li>
         <li>
-          a "multiplier expression" like <code>*2+3*4+5</code> for the scenarios where you
+          a &quot;multiplier expression&quot; like <code>*2+3*4+5</code> for the scenarios where you
           have <span className="amult">+mult</span> between <span className="mmult">Xmult</span>s.
           The expression describes the order and operation of mult modifiers. Unlike usual math rules,
           this expression is calculated from left to right, putting the base mult on the left.
-          For example, suppose you play a hand where there's one card
+          For example, suppose you play a hand where there&apos;s one card
           with <span className="amult">+4 mult</span> enhancement,
           a steel card left in hand (giving <span className="mmult">X1.5 mult</span> after scoring all cards),
           then a <span className="amult">+8 mult</span> joker and finally a <span className="mmult">X2 mult</span> joker.

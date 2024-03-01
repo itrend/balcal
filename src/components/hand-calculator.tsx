@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react"
 import { parseRanks } from "../poker"
-import { CalcExplanation, ComboLevels, calc } from "../poker-baltaro"
+import { CalcExplanation, ComboLevels, calc } from "../poker-balatro"
 import { Explain } from "./explain"
 
 const inputs: string[] = ["hand", "hasFlush", "straightFour", "straightSkip", "cardsBonus", "cardsMult", "extraChips", "extraMult", "multMult"]
