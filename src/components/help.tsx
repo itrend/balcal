@@ -12,7 +12,9 @@ export function Help() {
         <li>extra chips and mult must be gathered manually from the game</li>
         <li>retrigger cards must be accounted for manually, as extra chips</li>
         <li>debuffed card&apos;s chips must be manually substracted from extra chips (possibly going negative)</li>
-        <li>I still don&apos;t know the base score of flush five, so this one won&apos;t work</li>
+        <li>no error handling - if you write a non-number in any field, you'll get <b>NaN</b> (a principle
+        known as <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in,
+        garbage out</a>)</li>
       </ul>
       <hr/>
       <b>Poker hand</b>: the ranks of your poker hand (no colors), spaces are optional. Each
@@ -41,7 +43,7 @@ export function Help() {
       <b>Mult mult chain</b>: your <MMult>Xmult</MMult> bonuses. Can be either:
       <ul>
         <li>
-          list of numbers that will be multiplied together to get the final multiplier
+          a list of numbers that will be multiplied together to get the final multiplier
           e.g. <code>1.5 2 3</code> will yield final multiplier of <code>9</code>. Use this way
           if all of your <MMult>Xmult</MMult>s
           are <b>after</b> all <AMult>+mult</AMult>s
