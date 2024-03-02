@@ -75,7 +75,7 @@ const comboBases: Record<Combination, [number, number, number, number]> = {
   "Five": [120, 12, 3, 35],
   "StraightFlush": [100, 8, 3, 40],
   "FlushHouse": [140, 14, 3, 40],
-  "FlushFive": [170, 16, 3, 40],
+  "FlushFive": [160, 16, 3, 40],
 }
 
 function calcMultChain(s: string, mult: number): number {
