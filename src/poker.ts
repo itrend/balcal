@@ -70,6 +70,7 @@ export function combination(ranks: CardRank[], opts: CombinationOpts = {}): Comb
   if (ranks.length === 0) throw Error("Hand is empty")
   const counts: Record<number, number> = {}
   ranks.forEach((r) => {
+    if (r === 0) return // ignore stone cards
     if (!counts[r]) counts[r] = 0
     counts[r] += 1
   })
